@@ -1,0 +1,15 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Create New Watchlist {% endblock title %}
+{% block subtitle %} Create New Watchlist {% endblock subtitle %}
+{% block content %}
+
+{% endblock content%}
+{% block main %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+   <button type="submit">Create Watchlist</button>
+  </form>
+
+{% endblock main%}

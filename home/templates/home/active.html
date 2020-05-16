@@ -1,0 +1,74 @@
+{% extends "home/base.html" %}
+{% block title %} Active Database {% endblock title %}
+{% block subtitle %} Active Database {% endblock subtitle %}
+{% block content %}
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+  <span>Saved Databases</span>
+  <a class="d-flex align-items-center text-muted" href="{% url 'bqf-search' %}">
+    <span data-feather="plus-circle"></span>
+  </a>
+</h6>
+<ul class="nav flex-column mb-2">
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <span data-feather="file-text"></span>
+      5min Uptrend S&P 500
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <span data-feather="file-text"></span>
+      30min Downtrend FX
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <span data-feather="file-text"></span>
+      10min Hang Seng
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <span data-feather="file-text"></span>
+      1min Nikkei 255
+    </a>
+  </li>
+</ul>
+{% endblock %}
+
+
+
+{% block main %}
+<h2>Current Structures</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Date of Occurrence</th>
+                  <th>Security Type</th>
+                  <th>Security Name</th>
+                  <th>Time Frame</th>
+                  <th>B-Point Bar Volume</th>
+                  <th>Takeout Bar Volume</th>
+                  <th>Volume Delta</th>
+                  <th>Retracement %</th>
+                  <th>Potential Return %</th>
+                  <th>% of Extension Left to Achieve</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for each in finder %}
+                <tr>
+                  <td>{{ each.dateEnd }}</td>
+                  <td>{{ each.exchange }}</td>
+                  <td>{{ each.searchName }}</td>
+                  <td>{{ each.timeFrame }}</td>
+                  <td>B-Point Bar Volume</td>
+                  <td>Takeout Bar Volume</td>
+                  <td>Volume Delta</td>
+                  <td>Retracement %</td>
+                  <td>Potential Return %</td>
+                  <td>% of Extension Left to Achieve</td>
+                </tr>
+                {% endfor %}
+{% endblock main%}

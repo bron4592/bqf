@@ -1,0 +1,45 @@
+{% extends "home/base.html" %}
+{% block title %} Active Database {% endblock title %}
+{% block subtitle %} Current Structures {% endblock subtitle %}
+{% block content %}
+{% endblock %}
+
+
+
+{% block main %}
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Date of Occurrence</th>
+                  <th>Security Type</th>
+                  <th>Security Name</th>
+                  <th>Time Frame</th>
+                  <th>B-Point Bar Volume</th>
+                  <th>Takeout Bar Volume</th>
+                  <th>Volume Delta</th>
+                  <th>Retracement %</th>
+                  <th>% of Extension Left to Achieve</th>
+                  <th>AB Length as Percent of Price</th>
+                  <th>Initial Takeout Direction</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {% for each in structure %}
+                <tr>
+                  <td>{{ each.date }}</td>
+                  <td>{{ each.exchange }}</td>
+                  <td>{{ each.eqName }}</td>
+                  <td>{{ each.timeFrame }}</td>
+                  <td>{{ each.bVol }}</td>
+                  <td>{{ each.takeVol }}</td>
+                  <td>{{ each.volDelt }}</td>
+                  <td>{{ each.retracePer }}</td>
+                  <td>{{ each.perRemain }}</td>
+                  <td>{{ each.abPer }}</td>
+                  <td>{{ each.direction }}</td>
+                  
+                </tr>
+                {% endfor %}
+{% endblock main%}
